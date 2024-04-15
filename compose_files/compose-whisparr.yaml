@@ -1,3 +1,4 @@
+
 ###########################################################################
 ###########################################################################
 ##
@@ -8,8 +9,6 @@
 ##
 ###########################################################################
 ###########################################################################
-version: "3.7"
-
 services:
   whisparr:
     image: hotio/whisparr:nightly
@@ -23,7 +22,17 @@ services:
       - PGID=${PGID:?err}
       - UMASK=${UMASK:?err}
       - TZ=${TIMEZONE:?err}
-    network_mode: "container:gluetun"
+    networks:
+      - gluenet
+      - swagnet
+networks:
+  gluenet:
+    name: gluenet
+    external: true
+  swagnet:
+    name: swagnet
+    external: true
+
 
 # Ports are disabled in containers when they are connected to VPN, as the
 # Gluetun container manages the ports for containers that connect via VPN
