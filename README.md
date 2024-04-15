@@ -1,36 +1,35 @@
 # eyeball29's updates
 I have updated the original (noted here: [https://github.com/geekau/media-stack](https://github.com/geekau/media-stack)) with the following:
-*Intended to work with Docker Swarm using service level and stack networks pointing to externally generated networks. Removed "network_mode: "container:gluetun"". z
- swagnet only containers:
-  swag
-  heimdall
-  unpackerr
- gluenet only containers:
-  gluetun
-  ddns-updater
-  qbittorrent  
- These use both: 
-  bazaar
-  flaresolverr
-  jellyfin
-  jellyseer
-  lidarr
-  mylar3
-  portainer
-  prowlarr
-  radarr
-  readarr
-  sabnzbd
-  whisparr
+ - Intended to work with Docker Swarm using service level and stack networks pointing to externally generated networks. Removed "network_mode: "container:gluetun"".
+		- swagnet only containers:
+	  - swag
+ 	 - heimdall
+	  - unpackerr
+		- gluenet only containers:
+  	- gluetun
+	  - ddns-updater
+		 - qbittorrent  
+		- These use both: 
+			- bazaar
+			- flaresolverr
+	  - jellyfin
+		 - jellyseer
+			- lidarr
+			- mylar3
+		 - portainer
+	  - prowlarr
+	 	- radarr
+ 		- readarr
+ 		- sabnzbd
+ 		- whisparr
   
-*Added  compose file
-*Removed the "version" to allow for latest from docker compose. 
-*Added bash script "compose.sh" to run through the full list of compose files using [y/N] for running the containers to remove the need to spin up each separately, but still allowing for customizing which you want to run. 
+- Removed the "version" to allow for latest from docker compose. 
+- Added bash script "compose.sh" to run through the full list of compose files using [y/N] for running the containers to remove the need to spin up each separately, but still allowing for customizing which you want to run. 
 
 
 Please note the following:
-*Started with just the full-vpn_multiple-yaml directory, which I have renamed "yarr" for reducing typing/copying && pasting
-*Still need to test the networks fully
+- Started with just the full-vpn_multiple-yaml directory, which I have renamed "yarr" for reducing typing/copying && pasting
+- Still need to test the networks fully
 
 
 
