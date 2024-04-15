@@ -1,4 +1,4 @@
-#eyeball29's updates
+# eyeball29's updates
 I have updated the original (noted here: [https://github.com/geekau/media-stack](https://github.com/geekau/media-stack)) with the following:
 *Intended to work with Docker Swarm using service level and stack networks pointing to externally generated networks. Removed "network_mode: "container:gluetun"". z
  swagnet only containers:
