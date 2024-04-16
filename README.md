@@ -3,11 +3,11 @@ I have updated the original (noted here: [https://github.com/geekau/media-stack]
  - Intended to work with Docker Swarm using service level and stack networks pointing to externally generated networks. Removed "network_mode: "container:gluetun"".
  - swagnet only containers:
  	- swag
- 	- heimdall
+	- ddns-updater
+   	- heimdall
 	- unpackerr
 - gluenet only containers:
 	- gluetun
-	- ddns-updater
 	- qbittorrent  
 - These use both: 
 	- bazaar
