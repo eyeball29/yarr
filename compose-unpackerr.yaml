@@ -9,8 +9,6 @@
 ##
 ###########################################################################
 ###########################################################################
-version: "3.7"
-
 services:
   unpackerr:
     image: cr.hotio.dev/hotio/unpackerr:latest
@@ -100,5 +98,11 @@ services:
 
     security_opt:
       - no-new-privileges:true
-    
+
     network_mode: none
+    networks:
+      - swagnet
+networks:
+  swagnet:
+    name: swagnet
+    external: true
