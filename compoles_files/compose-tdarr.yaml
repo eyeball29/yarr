@@ -3,15 +3,13 @@
 ##
 ##  Docker Compose File: Tdarr V2 (haveagitgat/tdarr)
 ##  Function: Tdarr V2 - Audio/Video library transcoding automation
-##            (Contains Tdarr_Server and WebUI ) 
+##            (Contains Tdarr_Server and WebUI )
 ##
 ##  Documentation: https://docs.tdarr.io/docs/installation/docker/run-compose/
 ##  https://docs.tdarr.io/docs/installation/docker/hardware-transcoding
 ##
 ###########################################################################
 ###########################################################################
-version: "3.7"
-
 services:
   tdarr:
     image: ghcr.io/haveagitgat/tdarr:latest
@@ -33,7 +31,17 @@ services:
       - webUIPort=${WEBUI_PORT_TDARR:?err}
       - internalNode=true
       - nodeID=Tdarr_Server
-    network_mode: "container:gluetun"
+    networks:
+      - gluenet
+      - swagnet
+networks:
+  gluenet:
+    name: gluenet
+    external: true
+  swagnet:
+    name: swagnet
+    external: true
+
 
 # Ports are disabled in containers when they are connected to VPN, as the
 # Gluetun container manages the ports for containers that connect via VPN
@@ -61,4 +69,13 @@ services:
       - nodeID=Tdarr_Node_1
       - serverIP=0.0.0.0
       - serverPort=${TDARR_SERVER_PORT:?err}
-    network_mode: "container:gluetun"
+    networks:
+      - gluenet
+      - swagnet
+networks:
+  gluenet:
+    name: gluenet
+    external: true
+  swagnet:
+    name: swagnet
+    external: true
