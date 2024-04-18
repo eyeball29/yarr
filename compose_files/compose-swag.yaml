@@ -9,8 +9,6 @@
 ##
 ###########################################################################
 ###########################################################################
-version: "3.7"
-
 services:
   swag:
     image: lscr.io/linuxserver/swag:latest
@@ -39,10 +37,17 @@ services:
       - ONLY_SUBDOMAINS=${ONLY_SUBDOMAINS}
       - EXTRA_DOMAINS=${EXTRA_DOMAINS}
       - STAGING=${STAGING}
+    networks:
+      - swagnet
+networks:
+  swagnet:
+    name: swagnet
+    external: true
 
 # NOTE: SWAG MUST NOT connect to the Gluetun VPN container
 
-networks:
-  default:
-    name: media-network
-    external: true
+#networks:
+#  default:
+#    name: media-network
+#    external: true
+
