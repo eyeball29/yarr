@@ -8,8 +8,6 @@
 ##
 ###########################################################################
 ###########################################################################
-version: "3.7"
-
 services:
   sabnzbd:
     image: lscr.io/linuxserver/sabnzbd:latest
@@ -25,6 +23,17 @@ services:
       - DOCKER_MODS=ghcr.io/gilbn/theme.park:sabnzbd
       - TP_THEME=${TP_THEME:?err}
     network_mode: "container:gluetun"
+#    networks:
+#      - gluenet
+#      - swagnet
+#networks:
+#  gluenet:
+#    name: gluenet
+#    external: true
+#  swagnet:
+#   name: swagnet
+#   external: true
+
 
 # Ports are disabled in containers when they are connected to VPN, as the
 # Gluetun container manages the ports for containers that connect via VPN
