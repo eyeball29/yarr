@@ -8,8 +8,6 @@
 ##
 ###########################################################################
 ###########################################################################
-version: "3.7"
-
 services:
   readarr:
     image: lscr.io/linuxserver/readarr:develop
@@ -24,7 +22,17 @@ services:
       - TZ=${TIMEZONE:?err}
       - DOCKER_MODS=ghcr.io/gilbn/theme.park:readarr
       - TP_THEME=${TP_THEME:?err}
-    network_mode: "container:gluetun"
+    networks:
+      - gluenet
+      - swagnet
+networks:
+  gluenet:
+    name: gluenet
+    external: true
+  swagnet:
+    name: swagnet
+    external: true
+
 
 # Ports are disabled in containers when they are connected to VPN, as the
 # Gluetun container manages the ports for containers that connect via VPN
