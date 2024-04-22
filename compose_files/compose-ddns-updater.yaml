@@ -8,7 +8,7 @@
 ##
 ###########################################################################
 ###########################################################################
-version: "3.7"
+version: "3.8"
 
 services:
   ddns-updater:
@@ -49,8 +49,9 @@ services:
       - SHOUTRRR_ADDRESSES=
 
 # NOTE: DDNS-Update MUST NOT connect to the Gluetun VPN container
-
+    networks:
+      - swagnet
 networks:
-  default:
-    name: media-network
+  swagnet:
+    name: swagnet
     external: true

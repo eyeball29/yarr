@@ -100,9 +100,9 @@ services:
       - no-new-privileges:true
 
     network_mode: none
-    networks:
-      - swagnet
-networks:
-  swagnet:
-    name: swagnet
-    external: true
+#    networks:
+#      - swagnet
+#networks:
+#  swagnet:
+#    name: swagnet
+#    external: true

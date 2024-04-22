@@ -8,7 +8,7 @@
 ##
 ###########################################################################
 ###########################################################################
-version: "3.7"
+version: "3.8"
 
 services:
   prowlarr:
@@ -23,10 +23,21 @@ services:
       - TZ=${TIMEZONE:?err}
       - DOCKER_MODS=ghcr.io/gilbn/theme.park:prowlarr
       - TP_THEME=${TP_THEME:?err}
-    network_mode: "container:gluetun"
+
 
 # Ports are disabled in containers when they are connected to VPN, as the
 # Gluetun container manages the ports for containers that connect via VPN
 
 #    ports:
 #      - "${WEBUI_PORT_PROWLARR:?err}:9696"             # Configured in Gluetun VPN container
+#    network_mode: "container:gluetun"
+    networks:
+      - gluenet
+      - swagnet
+networks:
+  gluenet:
+    name: gluenet
+    external: true
+  swagnet:
+    name: swagnet
+    external: true

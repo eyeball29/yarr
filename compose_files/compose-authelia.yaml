@@ -10,7 +10,7 @@
 ##
 ###########################################################################
 ###########################################################################
-version: "3.7"
+version: "3.8"
 
 services:
   authelia:
@@ -26,8 +26,9 @@ services:
     restart: unless-stopped
 
 # NOTE: Authelia MUST NOT connect to the Gluetun VPN container
-
+    networks:
+      - swagnet
 networks:
-  default:
-    name: media-network
+  swagnet:
+    name: swagnet
     external: true

@@ -9,7 +9,7 @@
 ##
 ###########################################################################
 ###########################################################################
-version: "3.7"
+version: "3.8"
 
 services:
   heimdall:
@@ -26,7 +26,14 @@ services:
 
 # NOTE: Heimdall MUST NOT connect to the Gluetun VPN container
 
+#    network_mode: "container:gluetun"
+    networks:
+      - gluenet
+      - swagnet
 networks:
-  default:
-    name: media-network
+  gluenet:
+    name: gluenet
+    external: true
+  swagnet:
+    name: swagnet
     external: true
