@@ -30,4 +30,9 @@ services:
 ## Do Not Change Network for qBittorrent
 ## qBittorrent MUST always use a VPN / Secure Internet connection
 
-    network_mode: "container:gluetun"
+#    network_mode: "container:gluetun"
+    networks:
+      - gluenet
+networks:
+  gluenet:
+    external: true
