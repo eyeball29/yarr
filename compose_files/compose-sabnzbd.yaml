@@ -24,8 +24,8 @@ services:
       - TP_THEME=${TP_THEME:?err}
 #    network_mode: "container:gluetun"
     networks:
-#      - gluenet
-      - swagnet
+      - gluenet
+#      - swagnet
 networks:
   gluenet:
     name: gluenet
