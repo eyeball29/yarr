@@ -37,9 +37,9 @@ spec:
         - name: EMAIL
           value: "imb8556@proton.me"
         - name: ONLY_SUBDOMAINS
-          value: false
+          value: "false"
         - name: STAGING
-          value: false
+          value: "false"
         # Add environment variables for SWAG configuration (e.g., domain name, email, etc.)
         # See SWAG documentation for available options
 ---
