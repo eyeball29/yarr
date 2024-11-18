@@ -22,14 +22,14 @@ services:
       - TZ=${TIMEZONE:?err}
       - DOCKER_MODS=ghcr.io/gilbn/theme.park:sabnzbd
       - TP_THEME=${TP_THEME:?err}
-#    network_mode: "container:gluetun"
-    networks:
-      - gluenet
+    network_mode: "container:gluetun"
+#    networks:
+#      - gluenet
 #      - swagnet
-networks:
-  gluenet:
-    name: gluenet
-    external: true
+#networks:
+#  gluenet:
+#    name: gluenet
+#    external: true
 #   name: swagnet
 #   external: true
 
